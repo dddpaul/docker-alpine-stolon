@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+
+exec stolon-sentinel --cluster-name stolon-cluster --store-backend=consul --store-endpoints=consul:8500;
