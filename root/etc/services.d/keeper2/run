@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv sh
+
+# Wait for 1 minute unconditionally, because keepers can't be started simultaneously:
+# sentinel: failed to update clusterView: cannot choose initial master, more than 1 keeper registered
+sleep 60
+
+exec s6-setuidgid postgres stolon-keeper --id postgres2 --port 15432 --pg-port 25432 --data-dir /var/lib/postgresql/data2 --pg-su-password=123456 --pg-repl-username=repl --pg-repl-password=123456 --cluster-name stolon-cluster --store-backend=consul --store-endpoints=consul:8500;

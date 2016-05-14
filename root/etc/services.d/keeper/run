@@ -1,3 +1,0 @@
-#!/usr/bin/with-contenv sh
-
-exec s6-setuidgid postgres stolon-keeper --id postgres0 --pg-port 15432 --data-dir /var/lib/postgresql/data --pg-su-password=123456 --pg-repl-username=repl --pg-repl-password=123456 --cluster-name stolon-cluster --store-backend=consul --store-endpoints=consul:8500;

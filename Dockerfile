@@ -13,10 +13,8 @@ RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposito
 RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 ENV LANG en_US.utf8
-ENV PGDATA /var/lib/postgresql/data
-#VOLUME /var/lib/postgresql/data
 
-RUN mkdir -p /var/lib/postgresql/data && chown postgres /var/lib/postgresql/data
+RUN mkdir -p /var/lib/postgresql && chown postgres /var/lib/postgresql
 
 ADD root /
 
