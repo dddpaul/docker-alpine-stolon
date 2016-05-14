@@ -8,6 +8,10 @@ RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposito
     apk del curl && \
     rm -rf /var/cache/apk/*
 
+# Workaround to satisfy dependencies for dynamically linked stolon-keeper.
+# See http://stackoverflow.com/a/35613430.
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+
 ENV LANG en_US.utf8
 ENV PGDATA /var/lib/postgresql/data
 VOLUME /var/lib/postgresql/data
