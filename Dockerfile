@@ -1,4 +1,4 @@
-FROM dddpaul/alpine-base:2.0.1
+FROM dddpaul/alpine-base:2.0.2
 
 RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories && \
     apk update && apk add curl "postgresql@edge<9.6" "postgresql-contrib@edge<9.6" && \
