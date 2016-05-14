@@ -1,3 +1,3 @@
 #!/usr/bin/with-contenv sh
 
-exec stolon-keeper --id postgres0 --data-dir /var/lib/postgresql/data  --pg-repl-username=repluser --pg-repl-password=replpassword --cluster-name stolon-cluster --store-backend=consul --store-endpoints=consul:8500;
+exec stolon-keeper --id postgres0 --data-dir /var/lib/postgresql/data --pg-su-password=123456 --pg-repl-username=repluser --pg-repl-password=replpassword --cluster-name stolon-cluster --store-backend=consul --store-endpoints=consul:8500;
